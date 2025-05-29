@@ -7,7 +7,7 @@ import pandas as pd
 model = joblib.load("random_forest_pipeline.pkl")
 
 # === App Title ===
-st.title("🍷 Wine Quality Predictor")
+st.title("Wine Quality Predictor")
 st.subheader("Powered by Random Forest Classifier")
 
 st.markdown("""
@@ -27,7 +27,7 @@ if st.button("Predict Wine Quality"):
     prediction = model.predict(input_data)[0]
     probability = model.predict_proba(input_data)[0]
 
-    quality_label = "🍇 High Quality" if prediction == 1 else "🍷 Low Quality"
+    quality_label = "High Quality" if prediction == 1 else "Low Quality"
     confidence = round(np.max(probability) * 100, 2)
 
     st.markdown(f"### Prediction: **{quality_label}**")
